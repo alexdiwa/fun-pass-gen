@@ -1,38 +1,20 @@
+ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+NUMBERS = "0123456789"
+
 def validate_letters(str)
-  alphabet = "abcdefghijklmnopqrstuvwxyz"
   arr = str.gsub(" ", "").split("")
-
-  result = arr.all? do |letter|
-    alphabet.include?(letter.downcase)
-  end
-
-  if result == false
-   puts "Letters only please :)"
-  end
+  result = arr.all? { |letter| ALPHABET.include?(letter.downcase) }
+  result = false if arr.empty?
+  puts "Letters only, please! :)" if result == false
   result
 end
-
 
 def validate_numbers(num)
-  numbers = "0123456789"
   arr = num.gsub(" ", "").split("")
-
-  result = arr.all? do |number|
-    numbers.include?(number)
-  end
-
-  if result == false
-    puts "Numbers only please :)"
-  end
+  result = arr.all? { |number| NUMBERS.include?(number) }
+  result = false if arr.empty?
+  puts "Numbers only, please! :)" if result == false
   result
-end
-
-
-def initials(str)
-  words = str.split(" ")
-    chars = ""
-    words.each { |word| chars += word[0] }
-   chars
 end
 
 $answers = []
@@ -42,10 +24,24 @@ def ask_question(question, method)
   var_name = gets.chomp
 
   until send(method, var_name)
+    puts question
     var_name = gets.chomp
   end
 
   $answers << var_name
+end
+
+def generate_password(arr)
+  arr.each do |ele|
+
+  end
+end
+
+def initials(str)
+  words = str.split(" ")
+  chars = ""
+  words.each { |word| chars += word[0] }
+  chars
 end
 
 puts "------------------------------------------------"
@@ -60,28 +56,36 @@ puts "------------------------------------------------"
 enter = gets.chomp
 
 
-puts "Are you classic (1) or quirky (2)? (enter a number and hit ENTER)"
-choice = gets.chomp 
 
-if choice == "1"
 
-ask_question("What's your first name?", "validate_letters")
-ask_question("What's your last name?", "validate_letters")
-ask_question("What's your lucky number?", "validate_numbers")
-ask_question("What's your favourite drink? The more imaginative, the better!", "validate_letters")
-ask_question("What's your favourite city?", "validate_letters")
-ask_question("What's your favourite place?", "validate_letters")
-p $answers
+continue = true
 
-elsif choice == "2"
+while continue
+  puts "Are you classic (1) or quirky (2)? (enter a number and hit ENTER)"
+  choice = gets.chomp 
 
-  ask_question("What's your last name?", "validate_letters")
+  if choice == "1"
 
-else 
+    ask_question("What's your first name?", "validate_letters")
+    ask_question("What's your last name?", "validate_letters")
+    ask_question("What's your lucky number?", "validate_numbers")
+    ask_question("What's your favourite drink? The more imaginative, the better!", "validate_letters")
+    ask_question("What's your favourite city?", "validate_letters")
+    ask_question("What's your favourite place?", "validate_letters")
+    p $answers
+    continue = false
 
-  puts "Please type 1 or 2"
-  choice = gets.chomp
+  elsif choice == "2"
+
+    ask_question("What's your last name?", "validate_letters")
+
+    continue = false
+
+  else
+    puts "Please type 1 or 2"
   
+  end
+
 end
 
 
