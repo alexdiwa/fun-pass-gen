@@ -1,3 +1,5 @@
+require 'artii'
+
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 NUMBERS = "0123456789"
 $answers = []
@@ -47,25 +49,68 @@ def generate_password(arr)
   return password
 end
 
+def encrypt(str, num)
+  encrypted_str = ""
+  str.each_char do |item|
+    if ALPHABET.include?(item)
+      new_idx = (ALPHABET.index(item) + num) % 26
+      encrypted_str += ALPHABET[new_idx]
+    elsif NUMBERS.include?(item)
+      new_idx = (NUMBERS.index(item) + num) % 10
+      encrypted_str += NUMBERS[new_idx]
+    end
+  end
+  encrypted_str
+end
 
+
+# def decrypt(str, num)
+#   decrypted_str = ""
+#   str.each_char do |item|
+#     if ALPHABET.include?(item)
+#       new_idx = (ALPHABET.index(item) - num) % 26
+#       decrypted_str += ALPHABET[new_idx]
+#     elsif NUMBERS.include?(item)
+#       new_idx = (NUMBERS.index(item) - num) % 10
+#       decrypted_str += NUMBERS[new_idx]
+#     end
+#   end
+#   decrypted_str
+# end
+
+
+puts ""
+puts ""
+puts ""
 puts "-----------------------------------------------------------------------"
 puts ""
 puts ""
-puts "Hello! Welcome to the FunPassGen, a fun password generator! We're going to ask you a series of questions to help generate a password for you that you'll remember."
+a = Artii::Base.new
+puts a.asciify('FunPassGen')
+puts ""
+puts "Hello! Welcome to the FunPassGen, a fun password generator!"
+puts ""
+puts "We're going to ask you a series of questions to help generate"
+puts "a password for you that you'll remember."
+puts ""
 puts ""
 puts "Hit ENTER/RETURN to continue"
+puts "(or CTRL + C to quit at any time)"
 puts ""
 puts ""
 puts "-----------------------------------------------------------------------"
+puts ""
+puts ""
 enter = gets.chomp
 
 continue = true
 
 while continue
-  puts "Are you classic (1) or quirky (2)? (type in a number and hit ENTER)"
+  puts ""
+  puts "Are you CLASSIC (1) or QUIRKY (2)? (type in a number and hit ENTER)"
   puts ""
   choice = gets.chomp 
-
+  puts ""
   if choice == "1"
 
     ask_question("What's your first name?", "validate_letters")
@@ -77,6 +122,20 @@ while continue
     puts ""
     puts "-----------------------------------------------------------------------"
     puts ""
+    puts "And that's it! Thanks for your help!"
+    puts ""
+    puts "Drumroll please while your password is generated......"
+    puts ""
+    puts "(hit ENTER)"
+    gets.chomp
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
     puts "Your passcode is:"
     puts ""
     puts generate_password($answers)
@@ -84,6 +143,13 @@ while continue
     puts "-----------------------------------------------------------------------"
     puts ""
     puts "Here's an easy way to remember it!"
+    puts ""
+    puts "~~ Imagine yourself (that's you, #{$answers[0]} #{$answers[1]}!) ~~"
+    puts "~~ Sippin' on #{$answers[2]} #{$answers[3]}(s) ~~"
+    puts "~~ In a cute #{$answers[4]} in #{$answers[5]}! ~~"
+    puts "~~ Sllllurp! ~~"
+    puts ""
+    puts "~~ Wooow! So easy! And so FUN! ~~"
     puts ""
     puts "-----------------------------------------------------------------------"
     
@@ -109,6 +175,11 @@ while continue
     puts "(hit ENTER)"
     gets.chomp
     puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
     puts "-----------------------------------------------------------------------"
     puts ""
     puts "Your passcode is:"
@@ -119,104 +190,102 @@ while continue
     puts ""
     puts "Here's an easy way to remember it!"
     puts ""
-    puts "With #{$answers[0]}, I #{$answers[1]} into the night"
-    puts "I turn into #{$answers[2]}, colored #{$answers[3]} with #{$answers[4]} arms"
-    puts "Although mighty, I am hungry, I'm off to eat #{$answers[6]} #{$answers[5]}" 
+    puts "With my pal #{$answers[0]}, I #{$answers[1]} into the night"
+    puts "I turn into a baby #{$answers[2]}, colored #{$answers[3]} with #{$answers[4]} arms"
+    puts "Although mighty, I am hungry. I'm off to eat #{$answers[6]} #{$answers[5]}." 
     puts ""
     puts "-----------------------------------------------------------------------"
     
     continue = false
 
   else
-    puts "Please type 1 or 2, and hit ENTER!"
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    puts ""
+    puts "Oops! Please type 1 or 2, and hit ENTER!"
+    puts ""
+    puts ""
+    puts "-----------------------------------------------------------------------"
   end
 
 end
 
+continue = true
+while continue
+  puts ""
+  puts "Do you want to encrypt your password? (Y/N)"
+  puts ""
+  pword_encrypt = gets.chomp
+  if pword_encrypt.downcase == "y"
+    puts ""
+    puts "What's your birth date?"
+    puts ""
+    birth_date = gets.chomp.to_i
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    puts "Your encrypted password is:"
+    puts ""
+    puts encrypted_pword = encrypt(generate_password($answers), birth_date)
+    puts ""
+    puts "Write this down somewhere safe, and keep it a secret!"
+    puts ""
+    puts "If you want to decode it manually, just go back #{birth_date} spaces/indices for each letter in the alphabet, and numeric digit in the range 0 through to 9"
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    puts ""
+    puts "Thanks for using FunPassGen! Goodbye!"
+    puts ""
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    continue = false
+  elsif pword_encrypt.downcase == "n"
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    puts ""
+    puts "Thanks for using FunPassGen! Goodbye!"
+    puts ""
+    puts ""
+    puts "-----------------------------------------------------------------------"
+    puts ""
+    continue = false
+  else
+    puts ""
+    puts "Please type Y or N, and hit ENTER!"
+    puts ""
+  end
+end
+
+
 # continue = true
-
 # while continue
-#   puts "Do you want to encrypt your password? (Y/N)"
-
-
-
-
-
-
-
-
-
-# puts "What's your first name?"
-# first_name = gets.chomp
-
-# until validate_letters(first_name) and first_name != "" and first_name != " "
-#   puts "What's your first name?"
-#   first_name = gets.chomp
+#   puts ""
+#   puts "Do you want to decrypt your password? (Y/N)"
+#   puts ""
+#   pword_decrypt = gets.chomp
+#   if pword_decrypt.downcase == "y"
+#     puts ""
+#     puts "Your decrypted password is:"
+#     puts ""
+#     puts decrypted_pword = decrypt(encrypted_pword, birth_date)
+#     puts ""
+#     continue = false
+#   elsif pword_decrypt.downcase == "n"
+#     puts ""
+#     puts "Thanks for using FunPassGen! Goodbye!"
+#     puts ""
+#     continue = false
+#   else
+#     puts ""
+#     puts "Please type Y or N, and hit ENTER!"
+#     puts ""
+#   end
 # end
-
-# puts "Nice one! What about your last name?"
-# last_name = gets.chomp
-
-# until validate_letters(last_name) and last_name != "" and last_name != " "
-#   puts "What's your last name?"
-#   last_name = gets.chomp
-# end
-
-# puts "Super! What's your lucky number?"
-# lucky_num = gets.chomp
-  
-# until validate_numbers(lucky_num) and lucky_num != "" and lucky_num != " "
-#   puts "What's your lucky number?"
-#   lucky_num = gets.chomp
-# end
-
-# puts "What is your favourite drink? The more imaginative, the better!"
-# fav_drink = gets.chomp
-
-# until validate_letters(fav_drink) and fav_drink != "" and lucky_num != " "
-#   puts "What's your favourite drink?"
-#   fav_drink = gets.chomp
-# end
-
-# drink_initials = initials(fav_drink)
-
-# puts "What is your favourite city?"
-# fav_city = gets.chomp
-
-# until validate_letters(fav_city) and fav_city != "" and fav_city != " "
-#   puts "What's your favourite city?"
-#   fav_city = gets.chomp
-# end
-
-# city_initials = initials(fav_city)
-
-# puts "What is your favourite place to be? e.g. beach, park, dumpster"
-# fav_place = gets.chomp
-
-# until validate_letters(fav_place) and fav_place != "" and fav_place != " "
-#   puts "What's your favourite place to be?"
-#   fav_place = gets.chomp
-# end
-
-# place_initials = initials(fav_place)
-
-# password = first_name[-1] + last_name[-1].upcase + lucky_num + drink_initials + place_initials + city_initials.upcase
-
-
-# puts "Your password is... Drumroll please......."
-# puts password
-# puts ""
-# puts "#{first_name} #{last_name}'s lucky number is #{lucky_num}"
-
-
-  
-
-
-
-
-
-
-
-
-  
-#xE42
