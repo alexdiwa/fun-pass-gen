@@ -78,8 +78,10 @@ elsif choice == "2"
   ask_question("What's your last name?", "validate_letters")
 
 else 
+
   puts "Please type 1 or 2"
   choice = gets.chomp
+  
 end
 
 
