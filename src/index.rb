@@ -22,14 +22,12 @@ puts ""
 puts "Hit ENTER/RETURN to continue"
 enter = gets.chomp
 
-alphabet = ""
-
-puts "What's your first name? "
+puts "What's your first name?"
 first_name = gets.chomp
 
 until validate_letters(first_name) and first_name != ""
   puts "Letters only please :)"
-  puts "What's your first name? "
+  puts "What's your first name?"
   first_name = gets.chomp
 end
 
@@ -38,7 +36,7 @@ puts "Nice one! What about your last name?"
 
 until validate_letters(last_name) and last_name != ""
     puts "Letters only please :)"
-    puts "What's your last name? "
+    puts "What's your last name?"
     last_name = gets.chomp
 end
 
