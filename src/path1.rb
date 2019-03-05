@@ -1,3 +1,12 @@
+# -----------------------------------------------------------
+
+# path1.rb and path2.rb were used to draft our code for
+# index.rb, before we combined the two into one cohesive page
+# of code. path1.rb corresponded to option 1 (standard) path
+# while path2.rb and option 2 was the quirky path.
+
+# -----------------------------------------------------------
+
 # Gem for generating ASCII word art
 require 'artii'
 require 'colorize'
