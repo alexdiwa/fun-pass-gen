@@ -31,3 +31,5 @@ Our terminal app prompts the user to answer a series of questions. Fun Password 
 #### Project Plan & Timeline ####
 
 #### Screenshots of Trello Boards ####
+
+![screenshot](docs/1_trello_day1a.png)
