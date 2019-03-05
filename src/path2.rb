@@ -98,7 +98,7 @@ puts "You've been walking for a while now and you're hungry. What resturant do y
 
   puts ""
 
-  password = person_name[-1] + howl[0...2] + figure[-1].upcase + color[2].swapcase + num_limbs + num_dishes + restaurant[0].capitalize
+  password = person_name[-1].capitalize + howl[0...2] + figure[-1].upcase + color[2].swapcase + num_limbs[0] + restaurant[0] + num_dishes[1] 
 
   puts "Voila! Your password is #{password}"
 
@@ -108,10 +108,9 @@ puts ""
 
 puts "Here's a phrase to help you remember your password :) "
 
-puts "With #{person_name}, I #{howl} into the night
-I turn into #{figure}, coloured #{color} with #{num_limbs} arms
-Although mighty, I am hungry, I'm off to eat #{num_dishes} #{restaurant} dishes"
-
+puts "With #{person_name}, I #{howl}-ed into the night
+I turned into a #{figure}, coloured #{color} with #{num_limbs} arms
+Although mighty, I am hungry, I'm off to devour #{num_dishes} #{restaurant} dishes"
 
 
 
