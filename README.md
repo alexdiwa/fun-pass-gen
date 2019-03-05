@@ -18,6 +18,10 @@ Our terminal app prompts the user to answer a series of questions. Fun Password 
 
 #### Instructions for Use ####
 
+1. Download the app to a folder
+2. Open the terminal. cd to the folder where you downloaded the fun-pass-gen.rb file and type "ruby fun-pass-gen.rb
+3. Follow the question prompts in the terminal ensuring no spaces are added to the letters or numbers
+4. Password will be generated after successfully answering all the questions
 
 #### Screenshots of the App ####
 
