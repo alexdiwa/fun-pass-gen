@@ -3,10 +3,12 @@
 Github Repo:
 
 ### Description ###
+The Fun Password Generator (Fun-Pass-Gen) is a terminal app created from Ruby that generates a unique password string based on the user's answers to a given set of questions. The user will be provided with a memorable narrative at the end that will aid them in remembering their password. 
+
 
 #### Purpose ####
 
-Our aim is to create a terminal app that generates a memorable and secure password for the user.
+The app's purpose is to generate a memorable and secure password for the user.
 
 #### Stretch Goal ####
 
@@ -14,14 +16,14 @@ If time allows, we aim to add functionality to the app that allows the user to s
 
 #### Functionality ####
 
-Our terminal app prompts the user to answer a series of questions. Fun Password Generator takes this information, generates and outputs a secure password between 8 and 12 characters, comprised of letters, numbers, and if requested, special characters (!?-_), as well as a a story (or mnemonic), that makes the password easy for the user to recall. 
+Fun Password Generator starts off by prompting the user to pick a path (path 1 or 2) where the user will then be asked to answer a series of questions. The app will then store and use the answers as basis for creating a unique password comprised of a mix of letters and numbers. The user will also be provided a brief story that will contain with their answers to enable easier memory recall.
 
 #### Instructions for Use ####
 
-1. Download the app to a folder
-2. Open the terminal. cd to the folder where you downloaded the fun-pass-gen.rb file and type "ruby fun-pass-gen.rb
-3. Follow the question prompts in the terminal ensuring no spaces are added to the letters or numbers
-4. Password will be generated after successfully answering all the questions
+1. Download the app to a folder.
+2. Open the terminal. Locate the folder where you downloaded the fun-pass-gen.rb file using cd and and type "ruby fun-pass-gen.rb" to run the program.
+3. Pick a path and follow the question prompts in the terminal, ensuring no spaces are added to the letters or numbers.
+4. A password will then be generated after the user successfully answers all the questions, along with a narrative to assist in memory recall.
 
 #### Screenshots of the App ####
 
