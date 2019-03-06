@@ -121,6 +121,13 @@ Prior to refactoring, our code was repetitive and fairly disorganised. In our fi
 
 We soon realised that our code had the potential to be 'DRY'ed up, so after consulting Garret, we decided on compartmentalising our code into more methods. Specifically, we created a method ask_question, that took in both a question (string) and a method (string) as arguments. Prior to speaking with Garret, we did not know that we could call a method using a string (using ‘send’). This DRYed up our code significantly, but as we had already written a lot of code - in two separate files path1.rb and path2.rb, denoting the two separate routes the user could take using the app - this involved a lot of time and refactoring. In hindsight, we should have tried to implement DRY code from the beginning, as this would have saved us a lot of time, and would have allowed us to implement more sophisticated features (e.g. text-to-speech accessibility, and cleaner and more engaging user interface). 
 
+##### Screenshot of code before refactoring: #####
+
+![before_refactor](docs/11_code_before_refactoring.png)
+
+##### Screenshot of code after refactoring: #####
+
+![after_refactor](docs/13_code_after_refactoring.png)
 
 #### Rationale behind choosing certain data types ####
 
