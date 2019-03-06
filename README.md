@@ -26,9 +26,10 @@ Fun Password Generator starts off by prompting the user to pick a path (path 1 o
 #### Instructions for Use ####
 
 1. Clone the GitHub repo to your local computer.
-2. Open the terminal (CLI) and navigate to the directory fun-pass-gen/src. Run 'ruby index.rb' to start the app.
-3. Pick a path (1 or 2) and follow the question prompts in the terminal.
-4. A password will then be generated after the user successfully answers all the questions, along with a narrative to assist in memory recall.
+2. Install the required gems listed in the Gemfile.
+3. Open the terminal (CLI) and navigate to the directory fun-pass-gen/src. Run 'ruby index.rb' to start the app.
+4. Pick a path (1 or 2) and follow the question prompts in the terminal.
+5. A password will then be generated after the user successfully answers all the questions, along with a narrative to assist in memory recall.
 
 #### Screenshots of the App ####
 
