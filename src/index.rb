@@ -138,8 +138,8 @@ while continue
     puts ""
     colorize_answers($answers)
     puts "With my pal #{$colorized_answers[0]}, I #{$colorized_answers[1]} into the night."
-    puts "I turn into a baby #{$colorized_answers[2]}, colored #{$colorized_answers[3]} with #{$answers[4].colorize(:red)} tentacles."
-    puts "Although mighty, I am hungry. I'm off to eat #{$answers[6].colorize(:red)} #{$colorized_answers[5]}." 
+    puts "I turned into a baby #{$colorized_answers[2]}, colored #{$colorized_answers[3]} with #{$answers[4].colorize(:red)} tentacles."
+    puts "Although mighty, I am hungry. I'm off to eat #{$answers[6].colorize(:red)} #{$colorized_answers[5]} dish(es)." 
     puts ""
     puts "-----------------------------------------------------------------------"
     
@@ -169,7 +169,7 @@ while continue
   pword_encrypt = gets.chomp
   if pword_encrypt.downcase == "y"
     puts ""
-    puts "What's your birth date?".colorize(:yello)
+    puts "What's your birth date?".colorize(:yellow)
     puts ""
     birth_date = gets.chomp
     until validate_numbers(birth_date)
