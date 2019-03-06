@@ -14,7 +14,7 @@ The app's purpose is to generate a memorable and secure password for the user.
 
 #### Stretch Goal ####
 
-If time allows, we aim to add functionality to the app that allows the user to store and retrieve an encrypted version of the password. 
+If time allows, we aim to add functionality to the app that allows the user to store and retrieve an encrypted version of the password. Another stretch goal is to have the app highlight in color, the specific letter or number taken from the user's answers in the narrative to further help in recall. 
 
 #### Functionality ####
 
@@ -42,6 +42,7 @@ We initially considered other ideas such as a yoga dictionary or an meal app. Ho
 continued brainstorming in a Trello Board what the potential requirements and features we would need for the app. Examples include, potential memorable phrases and questions for the users and code conditionals to implement. Other subheadings included user stories, and a to do list that would assist us in keeping track of project requirements.
 
 II. Trello and the Sprints
+
 At this point we wanted to work using the agile methodology so instead of building all the structures as our initial inclination, we decided to run sprints instead. For Sprint 1, we decided on just getting the code written and getting the initial concept of the app working. Afterwards, we used Sprint 2 to expand on the scope of Sprint 1 (via adding another branch of choice for the users) finalise the questions and the minute details, along with integrating any learnings found on Sprint 1. 
 
 
