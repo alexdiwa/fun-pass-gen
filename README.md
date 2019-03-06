@@ -1,4 +1,6 @@
-## Fun Password Generator ##
+## FunPassGen - Fun Password Generator ##
+
+![FunPassGen_logo](docs/0_FunPassGen_logo.png)
 
 Github Repo: https://github.com/alxdwa/fun-pass-gen.git
 
