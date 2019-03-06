@@ -1,13 +1,18 @@
 # Gem for generating ASCII word art
 require 'artii'
+# Gem for making the app more colourful, interactive and easy to use.
 require 'colorize'
-# constants 
+# Set as constants so that they can be accessed from anywhere in the program, and because
+# they just needed to be referred to and not changed. 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 NUMBERS = "0123456789"
 # Creating an empty array that will hold the answers from the user
+# We used a global variable so that the answers array could be accessed from anywhere in the
+# program, but specifically the ask_question and encrypt methods.
 $answers = []
 
 # Method that checks whether input string is valid when only letters are expected
+# We made this method comprehensive to account for empty strings, " " and special characters
 def validate_letters(str)
   arr = str.gsub(" ", "").split("")
   result = arr.all? { |letter| ALPHABET.include?(letter.downcase) }
@@ -17,6 +22,7 @@ def validate_letters(str)
 end
 
 # Method that checks whether input string is valid when only numbers are expected
+# We made this method comprehensive to account for empty strings, " " and special characters
 def validate_numbers(num)
   arr = num.gsub(" ", "").split("")
   result = arr.all? { |number| NUMBERS.include?(number) }
@@ -28,6 +34,8 @@ end
 # Method that generates a question, and only lets the user progress if it is
 # answered in the correct format (and which calls the validate_letters/numbers methods).
 # The method stores the answers in an array.
+# We used 'send' to call a method in using a string, so that it could be
+# flexible depending on whether the expected input was a string of letters or numbers.
 def ask_question(question, method)
   puts ""
   puts question.colorize(:yellow)
@@ -40,18 +48,25 @@ def ask_question(question, method)
     var_name = gets.chomp
   end
   $answers << var_name.strip
+# we used strip to remove surrounding whitespace, so that
+# generated password did not have any gaps
 end
 
 # A method that generates a unique password for the user based on their given answers.
 # The method takes in an array, and clips off the first character for letter strings,
 # and takes the entire number for numerical strings.
+      #we used an if/else here to distinguish letters from number strings.
+      #We used nested iterators to take the first letter of each 
+      #word for multiple-word inputs e.g. New York City --> NYC
+      #the else statement takes care of numerical cases, so that the whole number
+      #is added, and not just the first character of that numerical string
 def generate_password(arr)
   password = ""
   arr.each do |ele|
     words = ele.split(" ")
     words.each do |word|
       if word.split("").all? { |letter| ALPHABET.include?(letter.downcase) }
-        password += word[0]
+        password += word[0] 
       else
         password += word
       end
@@ -63,6 +78,9 @@ end
 
 # A method that encrypts the generated password by cycling through spaces in the alphabet
 # or numbers 0..9, depending on a number that the user inputs (user birth date).
+# We used if/elsif/else to distinguish between downcase letters (if), upcase letters(elsif)
+# and numbers. The elsif statement allows us to maintain the character casing of the input while
+# encrypting i.e. the output has the same case as the input. 
 def encrypt(str, num)
   encrypted_str = ""
   str.each_char do |item|
@@ -81,7 +99,7 @@ def encrypt(str, num)
 end
 
 
-# Welcome page
+# Welcome page that uses the Artii gem for a bold display as the introduction.
 puts ""
 puts ""
 puts ""
@@ -108,13 +126,16 @@ enter = gets.chomp
 
 continue = true
 
+# We used a while loop and an if/elsif/else control flow structure within
+# to allow the user to select different paths, but also be prompted to re-enter
+# their selection if they put in an invalid string.
 while continue
   puts ""
   puts "Are you CLASSIC (1) or QUIRKY (2)? (type in a number and hit ENTER)".colorize(:blue)
   puts ""
   choice = gets.chomp 
   puts ""
-  # Path 1 - Classic path
+  # Path 1 - Classic path. More standard questions for the user to experience.
   if choice == "1"
 
     ask_question("What's your first name?", "validate_letters")
@@ -142,7 +163,7 @@ while continue
     puts ""
     puts "                          Your passcode is:                            ".colorize(:green)
     puts ""
-    puts "                                  #{generate_password($answers)}       "
+    puts "                                #{generate_password($answers)}         "
     puts ""
     puts "-----------------------------------------------------------------------"
     puts ""
@@ -162,14 +183,14 @@ while continue
     
     continue = false
   
-  # Path 2 - Quirky path
+  # Path 2 - Quirky path. If the user selects 2, they will be asked a different set of questions.
   elsif choice == "2"
 
     ask_question("You're walking around at night with a person. Who is that person?", "validate_letters")
     ask_question("The full moon rises. You howl...", "validate_letters")
     ask_question("You turn into a/an...", "validate_letters")
     ask_question("What colour are you?", "validate_letters")
-    ask_question("How many limbs do you have?", "validate_numbers")
+    ask_question("How many tentacles do you have?", "validate_numbers")
     ask_question("You've been active for a while now and you're hungry. You go to a restaurant. What meal do you crave?", "validate_letters")
     ask_question("You have a magic belly which can take an unlimited number of dishes. How many do you order?", "validate_numbers")
     
@@ -192,14 +213,14 @@ while continue
     puts ""
     puts "                          Your passcode is:                            ".colorize(:green)
     puts ""
-    puts "                    #{generate_password($answers)}                     "
+    puts "                                #{generate_password($answers)}         "
     puts ""
     puts "-----------------------------------------------------------------------"
     puts ""
     puts "Here's an easy way to remember it!".colorize(:yellow)
     puts ""
-    puts "With my pal #{$answers[0][0].colorize(:red) + $answers[0][1..-1]}, I #{$answers[1][0].colorize(:red) + $answers[1][1..-1]} into the night"
-    puts "I turn into a baby #{$answers[2][0].colorize(:red) + $answers[2][1..-1]}, colored #{$answers[3][0].colorize(:red)} with #{$answers[4].colorize(:red)} arms"
+    puts "With my pal #{$answers[0][0].colorize(:red) + $answers[0][1..-1]}, I #{$answers[1][0].colorize(:red) + $answers[1][1..-1]} into the night."
+    puts "I turn into a baby #{$answers[2][0].colorize(:red) + $answers[2][1..-1]}, colored #{$answers[3][0].colorize(:red)} with #{$answers[4].colorize(:red)} tentacles."
     puts "Although mighty, I am hungry. I'm off to eat #{$answers[6].colorize(:red)} #{$answers[5][0].colorize(:red) + $answers[5][1..-1]}." 
     puts ""
     puts "-----------------------------------------------------------------------"
@@ -217,7 +238,11 @@ while continue
   end
 
 end
-# Next loop prompting for password encryption, and goodbye page.
+
+# We implemented this next while loop for the encryption process and prompting the user
+# if they wanted to encrypt their password. This section of code redirects the user
+# to input again if their input was invalid (not "Y" or "N"), while also 
+# including the 'farewell' page, so that the user knows that the program has terminated.
 continue = true
 while continue
   puts ""
