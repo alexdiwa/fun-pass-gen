@@ -38,7 +38,7 @@ Fun Password Generator starts off by prompting the user to pick a path (path 1 o
 
 ### Design & Planning ###
 
-Please find comprehensive documentation of our design and planning process, considerations and challenges. 
+Please find comprehensive documentation of our design and planning process, considerations and challenges below. 
 
 #### Brainstorming ####
 
