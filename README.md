@@ -7,6 +7,7 @@ Github Repo: https://github.com/alxdwa/fun-pass-gen.git
 Contributors: Alex Diwa: https://github.com/alxdwa & Jade Rosario https://github.com/tjde
 
 ### Description ###
+
 The Fun Password Generator (FunPassGen) is a terminal app created using ruby and the command line interface. FunPassGen generates a unique password string based on the user's answers to a given set of questions. The user will be provided with a memorable narrative at the end that will aid them in remembering their password. 
 
 
@@ -25,7 +26,7 @@ Fun Password Generator starts off by prompting the user to pick a path (path 1 o
 #### Instructions for Use ####
 
 1. Clone the GitHub repo to your local computer.
-2. Open the terminal (CLI) and navigate to the directory fun-pass-gen. Run 'ruby index.rb' to start the app.
+2. Open the terminal (CLI) and navigate to the directory fun-pass-gen/src. Run 'ruby index.rb' to start the app.
 3. Pick a path (1 or 2) and follow the question prompts in the terminal.
 4. A password will then be generated after the user successfully answers all the questions, along with a narrative to assist in memory recall.
 
