@@ -59,4 +59,25 @@ March 6 (Wednesday) - App is finalised and the README documentation updated. Pow
 
 #### Screenshots of Trello Boards ####
 
+I. Brainstorming Board
+
 ![screenshot](docs/1_trello_day1a.png)
+
+![screenshot](docs/2_trello_day1b.png)
+
+![screenshot](docs/3_trello_day1c.png)
+
+II. Sprint 1
+
+![screenshot](docs/4_agile_sprint1_todo.png)
+
+![screenshot](docs/9_agile_sprint1_inprogress.png)
+
+![screenshot](docs/10_agile_sprint1_complete.png)
+
+III. Sprint 2
+
+![screenshot](docs/14_agile_sprint2.png)
+
+![screenshot](docs/14_agile_sprint3.png)
+
