@@ -35,7 +35,7 @@ Fun Password Generator starts off by prompting the user to pick a path (path 1 o
 ![app_screenshot](docs/18_appscreenshot1.png)
 ![app_screenshot](docs/19_appscreenshot2.png)
 ![app_screenshot](docs/20_appscreenshot3.png)
-![app_screenshot](docs/21_appscreenshot4.png)
+![app_screenshot](docs/21_appscrenshot4.png)
 ![app_screenshot](docs/22_appscreenshot5.png)
 ![app_screenshot](docs/23_appscreenshot5.png)
 
@@ -57,6 +57,8 @@ At this point we wanted to work using the agile methodology. Instead of building
 
 
 #### User/Workflow Diagram ####
+
+![app_screenshot](docs/24_user_flow.png)
 
 #### Project Plan & Timeline ####
 
